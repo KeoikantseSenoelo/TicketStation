@@ -1,0 +1,63 @@
+.about_area {
+    padding-bottom: 150px; // Bottom padding for the about area
+    position: relative; // Position relative for child elements
+    margin-top: -2px; // Slight negative margin for styling
+
+    @media #{$tablet_device} {
+        padding-bottom: 50px; // Adjust padding for tablet devices
+    }
+
+    &.extra_padd {
+        padding-top: 143px; // Extra top padding for specific cases
+
+        @media #{$mobile_device} {
+            padding-top: 40px; // Adjust for mobile devices
+        }
+
+        @media #{$tablet_device} {
+            padding-top: 60px; // Adjust for tablet devices
+        }
+    }
+
+    .about_thumb {
+        position: relative; // Position for the image container
+        z-index: 10; // Layering above other elements
+
+        @media #{$mobile_device} {
+            margin-bottom: 30px; // Space below the image on mobile
+        }
+
+        .thumb_inner {
+            position: relative; // Ensure relative positioning for child elements
+
+            img {
+                width: 70%; // Set the width for the image to ensure it’s not too large
+                max-width: 100%; // Ensure image doesn’t overflow
+                height: auto; // Maintain aspect ratio
+                border-radius: 5px; // Optional rounded corners
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); // Optional shadow
+                float: left; // Float the image to the left to allow text wrapping
+                margin: 0 20px 20px 0; // Space around the image
+            }
+        }
+    }
+
+    .about_info {
+        h4 {
+            font-family: $font1; // Custom font for headings
+            font-size: 30px; // Font size for headings
+            font-weight: 400; // Weight for headings
+            color: wheat; // Text color for headings
+        }
+
+        p {
+            margin-top: 40px; // Space above paragraphs
+            margin-bottom: 50px; // Space below paragraphs
+        }
+
+        // Additional styles for paragraphs to enhance readability
+        p {
+            clear: both; // Ensures the paragraphs start below floated elements
+        }
+    }
+}

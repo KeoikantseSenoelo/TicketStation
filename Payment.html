@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="zxx">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css"> <!--Include Font Awesome if needed -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/ticket.css">
+
+    <title>Payment Details</title>
+</head>
+
+<body>
+
+    <div class="containerP">
+        <div class="payment-section">
+            <!-- Payment Methods -->
+            <div class="payment-methods">
+                <h3>Payment methods</h3>
+                <ul>
+                    <li onclick="selectPaymentMethod(this)">Payment by card</li>
+                    <li onclick="selectPaymentMethod(this)">Internet banks</li>
+                    <li onclick="selectPaymentMethod(this)">Apple/Google pay</li>
+                </ul>
+            </div>
+    
+            <!-- Payment Form -->
+            <div class="payment-form">
+                <h3>Payment details</h3>
+                <form onsubmit="processPayment(event)">
+                    <input type="text" id="cardNumber" placeholder="Card number" required>
+                    <div style="display: flex; justify-content: space-between;">
+                        <input type="text" id="expiryDate" placeholder="MM/YY" style="width: 48%;" required>
+                        <input type="text" id="cvv" placeholder="CVV" style="width: 48%;" required>
+                    </div>
+                    <input type="email" id="email" placeholder="example@email.com" required>
+                    <button type="submit">Pay Now</button>
+                </form>
+            </div>
+    
+            <!-- Order Information -->
+            <div class="order-info">
+                <h3>Order Information</h3>
+                <p>Order description</p>
+                <p>Test payment</p>
+                <div class="payment-icons">
+                    <img src="img/visa.png" alt="Visa">
+                    <img src="img/mastercard.png" alt="MasterCard">
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function selectPaymentMethod(element) {
+            alert(`You selected: ${element.innerText}`);
+        }
+    
+        function processPayment(event) {
+            event.preventDefault();
+            const cardNumber = document.getElementById('cardNumber').value;
+            const expiryDate = document.getElementById('expiryDate').value;
+            const cvv = document.getElementById('cvv').value;
+            const email = document.getElementById('email').value;
+    
+            if (cardNumber && expiryDate && cvv && email) {
+                alert("Payment processing...");
+                // You can add real processing logic here
+            } else {
+                alert("Please fill in all the details.");
+            }
+        }
+    </script>
+    
+    </body>
+    </html>

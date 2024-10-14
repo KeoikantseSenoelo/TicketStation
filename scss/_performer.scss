@@ -1,0 +1,129 @@
+.performar_area{
+    padding-top: 135px;
+    padding-bottom: 63px;
+    @media #{$mobile_device} {
+        padding-top: 50px;
+        padding-bottom: 20px;
+    }
+    @media #{$tablet_device} {
+        padding-top: 80px;
+        padding-bottom: 60px;
+    }
+    .single_performer{
+        margin-bottom: 80px;
+        @media #{$mobile_device} {
+            margin-bottom: 30px;
+        }
+        @media #{$tablet_device} {
+            margin-bottom: 50px;
+        }
+        @media #{$tablet_device} {
+            margin-bottom: 40px;
+        }
+        .thumb{
+            img{
+                width: 100%;
+            }
+        }
+        .performer_heading{
+            margin-top: 35px;
+            h4{
+                font-size: 30px;
+                font-family: $font1;
+                color: #fff;
+                font-weight: 400;
+                margin-bottom: 14px;
+            }
+            span{
+                color: yellow;
+                font-weight: 400;
+                font-size: 20px;
+            }
+        }
+    }
+}
+
+/* General Styles for Featured Events */
+.featured_event_area {
+    padding: 80px 0;
+    background-color: #1a1a1a;
+    color: #fff;
+}
+
+.section_title h3 {
+    color: #fff;
+    font-size: 36px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+/* Featured Event Item */
+.single_featured_event {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.single_featured_event .thumb {
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+}
+
+.single_featured_event .thumb img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.single_featured_event:hover .thumb img {
+    transform: scale(1.05);
+}
+
+.featured_event_heading h4 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.featured_event_heading span {
+    color: #999;
+    font-size: 14px;
+}
+
+/* Optional: Responsive Adjustments */
+@media (max-width: 991px) {
+    .single_featured_event {
+        margin-bottom: 20px;
+    }
+
+    .featured_event_heading h4 {
+        font-size: 18px;
+    }
+}
+
+body {
+    font-family: Arial, sans-serif; /* Set a basic font for the body */
+    line-height: 1.6; /* Improve readability with line height */
+    margin: 20px; /* Add some margin to the body */
+}
+
+.about-section {
+    display: flex; /* Use flexbox for layout */
+}
+
+.about-image {
+    flex: 0 0 40%; /* Image takes up 40% of the width */
+    margin-right: 20px; /* Space between image and text */
+}
+
+.about-image img {
+    width: 100%; /* Make the image responsive */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 5px; /* Optional rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional shadow */
+}
+
+.about-text {
+    flex: 1; /* Text takes up the remaining space */
+}
+
+.about-text h3, .about-text h2 {
+    margin-top: 0;}

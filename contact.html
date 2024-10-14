@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="zxx">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Contact Us</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
+    <!-- CSS here -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/contact.css"> <!-- Your custom contact CSS -->
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-area">
+            <div id="sticky-header" class="main-header-area">
+                <div class="container">
+                    <div class="header_bottom_border">
+                        <div class="row align-items-center">
+                            <div class="col-xl-3 col-lg-3">
+                                <div class="logo">
+                                    <a href="index.html">
+                                        <h1 style="color:white; font-size: 50px; font-weight: bold; margin: 0;">EventPass</h1>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-xl-6 col-lg-6">
+                                <div class="main-menu d-none d-lg-block">
+                                    <nav>
+                                        <ul id="navigation" style="background-color: #333;">
+                                            <li><a href="index.html">Home</a></li>
+                                            <li><a href="about.html">About</a></li>
+                                            <li><a href="events.html">Events</a></li>
+                                            <li>
+                                                <a href="#">Account</a>
+                                                <ul class="submenu">
+                                                    <li><a href="login.html">Login</a></li>
+                                                    <li><a href="register.html">Register</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="contact.html">Contact</a></li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-lg-3 d-none d-lg-block">
+                                <div class="buy_tkt">
+                                    <div class="book_btn d-none d-lg-block">
+                                        <a href="Ticket.html">Get Tickets</a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-12">
+                                <div class="mobile_menu d-block d-lg-none"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Header End -->
+
+    <main>
+        <div class="container contact-container">
+            <h2>Contact Us</h2>
+            <form id="contactForm" action="thank_you.html" method="post"> <!-- Change action to your thank you page -->
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" class="form-control" rows="5" required></textarea>
+                    <small id="charCount">0/500</small> <!-- Character counter -->
+                </div>
+                <button type="submit" class="btn btn-primary">Send Message</button>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <p>Copyright &copy; 2024 TICKET STATION</p>
+    </footer>
+    <!-- JS files -->
+    <script src="js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Custom JS -->
+    <script>
+        // Character counter for the message field
+        const messageField = document.getElementById('message');
+        const charCount = document.getElementById('charCount');
+        const maxLength = 500;
+
+        messageField.addEventListener('input', function() {
+            const currentLength = messageField.value.length;
+            charCount.textContent = `${currentLength}/${maxLength}`;
+
+            // Optional: If you want to enforce a max character limit in JS
+            if (currentLength > maxLength) {
+                messageField.value = messageField.value.substring(0, maxLength);
+            }
+        });
+
+        // Form validation and confirmation popup
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            // Optional: Additional validation can be done here
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+
+            if (name && email && message) {
+                alert('Your message has been sent successfully! Thank you for contacting us.');
+            } else {
+                event.preventDefault(); // Prevent form submission if validation fails
+                alert('Please fill in all the required fields.');
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="zxx">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css"> <!-- Include Font Awesome if needed -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/ticket.css">
+    <title>Buy Tickets</title>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <nav class="navbar navbar-expand-lg custom-navbar">
+                <a class="navbar-brand" href="index.html">EventPass</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto" style="background-color:#333;">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="events.html">Events</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="login.html">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="register.html">Register</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.html">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="ticket.html">Buy Tickets</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <h2>Purchase Tickets</h2>
+            <p>Please select the event you wish to purchase tickets for:</p>
+
+            <form action="payment.html" method="post"> <!-- Updated action to payment.html -->
+                <div class="form-group">
+                    <label for="event">Select Event:</label>
+                    <select id="event" name="event" class="form-control" onchange="updateTicketInfo()">
+                        <option value="web_summit">Web Summit - Free Admission (Limited Capacity)</option>
+                        <option value="tech_conference">Tech Conference - $50</option>
+                        <option value="music_festival">Music Festival - $75</option>
+                        <option value="startup_showcase">Startup Showcase - $40</option>
+                        <option value="art_expo">Art Expo - $30</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="quantity">Quantity:</label>
+                    <input type="number" id="quantity" name="quantity" min="1" value="1" class="form-control" onchange="updateTotal()">
+                </div>
+
+                <div class="form-group">
+                    <label>Total Price: $<span id="totalPrice">0</span></label>
+                </div>
+
+                <a href="#" class="btn btn-primary" onclick="handleTicketReservation()">Reserve Tickets</a>
+
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <p>Copyright &copy; 2024 TICKET STATION</p>
+    </footer>
+
+    <script src="js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script>
+      // Event ticket prices
+      const ticketPrices = {
+          web_summit: 0, // Free ticket
+          tech_conference: 50,
+          music_festival: 75,
+          startup_showcase: 40,
+          art_expo: 30
+      };
+
+      // Function to handle ticket reservation
+      document.getElementById('ticketForm').addEventListener('submit', function (event) {
+          event.preventDefault(); // Prevent the form from submitting normally
+          handleTicketReservation();
+      });
+
+      function handleTicketReservation() {
+          const event = document.getElementById('event').value;
+
+          // Check if the selected event is free
+          if (ticketPrices[event] === 0) {
+              // If the event is free, redirect to the confirmation page
+              window.location.href = "purchase_confirmation.html";
+          } else {
+              // If the event requires payment, redirect to the payment page
+              window.location.href = "payment.html";
+          }
+      }
+
+      function updateTotal() {
+          const event = document.getElementById('event').value;
+          const quantity = document.getElementById('quantity').value;
+          const price = ticketPrices[event];
+
+          // Display the total price
+          document.getElementById('totalPrice').innerText = price * quantity;
+      }
+
+      function updateTicketInfo() {
+          // Reset quantity to 1 whenever the event changes
+          document.getElementById('quantity').value = 1;
+          updateTotal(); // Update total price based on the new selection
+      }
+
+      // Initialize total price on page load
+      updateTotal();
+  </script>
+</body>
+
+</html>
