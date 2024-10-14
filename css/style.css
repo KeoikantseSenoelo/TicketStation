@@ -6794,3 +6794,26 @@ body {
   width: 60px;
   margin: 0 5px;
 }
+
+@media (max-width: 480px) {
+  .payment-methods h3, .order-info h3 {
+      font-size: 1rem;
+  }
+
+  .payment-methods ul li {
+      font-size: 0.85rem;
+  }
+
+  .payment-form form input, .payment-form form button {
+      padding: 7px;
+      font-size: 0.85rem;
+  }
+
+  .order-info .payment-icons img {
+      width: auto;
+      height: 35px;
+  }
+}
+
+
+
